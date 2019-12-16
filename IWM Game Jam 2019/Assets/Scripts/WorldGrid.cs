@@ -17,8 +17,6 @@ public class WorldGrid : MonoBehaviour
         node_diameter = node_radius * 2;
         grid_size_X = Mathf.RoundToInt(m_grid_size.x / node_diameter);
         grid_size_Y = Mathf.RoundToInt(m_grid_size.y / node_diameter);
-        Debug.Log("X: " + grid_size_X);
-        Debug.Log("Y: " + grid_size_Y); 
         CreateGrid();
     }
 
@@ -37,11 +35,11 @@ public class WorldGrid : MonoBehaviour
             }
         }
 
-        //foreach (Node n in m_grid)
-        //{
-        //    n.Start();
-        //    n.GetNodeObject().transform.localScale = Vector3.one * (node_diameter - 0.1f);
-        //}
+        foreach (Node n in m_grid)
+        {
+            n.Start();
+            n.GetNodeObject().transform.localScale = Vector3.one * (node_diameter - 0.1f);
+        }
     }
 
     // This works for now 
@@ -111,8 +109,14 @@ public class WorldGrid : MonoBehaviour
 
                 if (path != null)
                 {
-                    if (path.Contains(n))   
-                        Gizmos.color = Color.red; 
+                    if (n == path[0])
+                    {
+                        Gizmos.color = Color.black; 
+                    }
+                    else if (path.Contains(n))
+                    {
+                        Gizmos.color = Color.red;
+                    }
                 }
 
                 Gizmos.DrawCube(n.GetWorldPosition(), Vector3.one * (node_diameter - 0.1f)); 

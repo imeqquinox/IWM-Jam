@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Plane
 {
+    [SerializeField] private int m_movement_cost = 1; 
+
     private Vector3 m_start_location;
     private Vector3 m_target_location;
     private GameObject m_plane; 
@@ -16,7 +18,12 @@ public class Plane
 
     public void Start()
     {
-        //m_plane = Instantiate(Resources.Load("TestPlane", typeof(GameObject)), m_start_location, Quaternion.identity) as GameObject; 
+        m_plane = GameObject.Instantiate(Resources.Load("TestPlane", typeof(GameObject)), m_start_location, Quaternion.identity) as GameObject; 
+    }
+
+    public void Update()
+    {
+
     }
 
     // Getters 

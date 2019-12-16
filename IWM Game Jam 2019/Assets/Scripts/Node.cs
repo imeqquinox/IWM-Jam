@@ -25,7 +25,7 @@ public class Node
     public void Start()
     {
         // Instantiate node prefab from resources folder to world position
-        //m_node = MonoBehaviour.Instantiate(Resources.Load("Node", typeof(GameObject)), m_world_position, Quaternion.identity, GameObject.Find("Nodes").transform) as GameObject; 
+        m_node = GameObject.Instantiate(Resources.Load("Node", typeof(GameObject)), m_world_position, Quaternion.identity, GameObject.Find("Nodes").transform) as GameObject; 
     }
 
     // Getters 
