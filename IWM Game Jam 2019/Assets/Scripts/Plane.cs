@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plane : MonoBehaviour
+public class Plane
 {
     private Vector3 m_start_location;
     private Vector3 m_target_location;
@@ -16,7 +16,7 @@ public class Plane : MonoBehaviour
 
     public void Start()
     {
-        m_plane = Instantiate(Resources.Load("TestPlane", typeof(GameObject)), m_start_location, Quaternion.identity) as GameObject; 
+        //m_plane = Instantiate(Resources.Load("TestPlane", typeof(GameObject)), m_start_location, Quaternion.identity) as GameObject; 
     }
 
     // Getters 

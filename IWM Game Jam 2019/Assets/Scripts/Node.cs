@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Node : MonoBehaviour
+public class Node 
 {
     // Potential city object, mission object etc 
     private Vector3 m_world_position;
@@ -10,6 +10,7 @@ public class Node : MonoBehaviour
 
     public int gridX { get; private set; }
     public int gridY { get; private set; }
+
     public int gCost { get; private set; }
     public int hCost { get; private set; }
     public Node parent { get; private set; }
@@ -24,7 +25,7 @@ public class Node : MonoBehaviour
     public void Start()
     {
         // Instantiate node prefab from resources folder to world position
-        m_node = Instantiate(Resources.Load("Node", typeof(GameObject)), m_world_position, Quaternion.identity, GameObject.Find("Nodes").transform) as GameObject; 
+        //m_node = MonoBehaviour.Instantiate(Resources.Load("Node", typeof(GameObject)), m_world_position, Quaternion.identity, GameObject.Find("Nodes").transform) as GameObject; 
     }
 
     // Getters 

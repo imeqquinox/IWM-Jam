@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WorldGrid : MonoBehaviour
 {
+    [SerializeField] private Transform player; 
     [SerializeField] private Vector2 m_grid_size;
     [SerializeField] private float node_radius;
 
@@ -39,7 +40,7 @@ public class WorldGrid : MonoBehaviour
         //foreach (Node n in m_grid)
         //{
         //    n.Start();
-        //    n.GetNodeObject().transform.localScale = Vector3.one * (node_diameter - 0.1f); 
+        //    n.GetNodeObject().transform.localScale = Vector3.one * (node_diameter - 0.1f);
         //}
     }
 
@@ -86,8 +87,8 @@ public class WorldGrid : MonoBehaviour
 
     public Node NodeFromWorldPoint(Vector3 _world_position)
     {
-        float percentX = (_world_position.x + m_grid_size.x / 2) / m_grid_size.x;
-        float percentY = (_world_position.z + m_grid_size.y / 2) / m_grid_size.y;
+        float percentX = (_world_position.x + m_grid_size.x/2) / m_grid_size.x;
+        float percentY = (_world_position.z + m_grid_size.y/2) / m_grid_size.y;
         percentX = Mathf.Clamp01(percentX);
         percentY = Mathf.Clamp01(percentY);
 
@@ -103,18 +104,18 @@ public class WorldGrid : MonoBehaviour
         Gizmos.DrawWireCube(transform.position, new Vector3(m_grid_size.x, 1, m_grid_size.y));
 
         if (m_grid != null)
-        {
+        { 
             foreach (Node n in m_grid)
             {
                 Gizmos.color = Color.blue;
 
                 if (path != null)
                 {
-                    if (path.Contains(n))
-                        Gizmos.color = Color.red;
-
-                    Gizmos.DrawCube(n.GetWorldPosition(), Vector3.one * (node_diameter - 0.1f));
+                    if (path.Contains(n))   
+                        Gizmos.color = Color.red; 
                 }
+
+                Gizmos.DrawCube(n.GetWorldPosition(), Vector3.one * (node_diameter - 0.1f)); 
             }
         }
     }

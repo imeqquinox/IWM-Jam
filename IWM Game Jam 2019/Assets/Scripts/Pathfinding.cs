@@ -5,7 +5,12 @@ using UnityEngine;
 public class Pathfinding : MonoBehaviour
 {
     [SerializeField] private Transform seeker, target;
-    [SerializeField] WorldGrid grid;
+    private WorldGrid grid;
+
+    private void Awake()
+    {
+        grid = GetComponent<WorldGrid>();
+    }
 
     private void Update()
     {
@@ -24,10 +29,15 @@ public class Pathfinding : MonoBehaviour
         while (open_set.Count > 0)
         {
             Node node = open_set[0]; 
-            for (int i = 1; i < open_set.Count; i++)
+            for (int i = 1; i < open_set.Count; i ++)
             {
                 if (open_set[i].fCost < node.fCost || open_set[i].fCost == node.fCost)
-                    node = open_set[i]; 
+                {
+                    if (open_set[i].hCost < node.hCost)
+                    {
+                        node = open_set[i];
+                    }
+                }
             }
 
             open_set.Remove(node);
@@ -87,6 +97,6 @@ public class Pathfinding : MonoBehaviour
             return 14 * dist_Y + 10 * (dist_X - dist_Y); 
         }
 
-        return 14 * dist_X + 10 * (dist_X - dist_Y); 
+        return 14 * dist_X + 10 * (dist_Y - dist_X); 
     }
 }
