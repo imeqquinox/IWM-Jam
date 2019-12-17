@@ -15,6 +15,7 @@ public class Plane
     private Vector3 m_target_location; 
     private GameObject m_plane;
     private Pathfinding m_pathfinding;
+    private int index_value;
 
     public Plane() {}
 
@@ -26,7 +27,7 @@ public class Plane
 
     public void Start()
     {
-        m_plane = GameObject.Instantiate(Resources.Load("TestPlane", typeof(GameObject)), m_start_location, Quaternion.identity) as GameObject;
+        m_plane = GameObject.Instantiate(Resources.Load("A10Pre", typeof(GameObject)), m_start_location, Quaternion.identity) as GameObject;
         m_pathfinding = m_plane.GetComponent<Pathfinding>();
         m_pathfinding.SetStartPosition(m_start_location);
         m_pathfinding.SetTargetPosition(m_target_location); 
@@ -78,6 +79,11 @@ public class Plane
         return m_crew_cost; 
     }
 
+    public int GetIndex()
+    {
+        return index_value; 
+    }
+
     // Setters 
     public void SetStartLocation(Vector3 _start_location)
     {
@@ -87,5 +93,10 @@ public class Plane
     public void SetTargetLocation(Vector3 _target_location)
     {
         m_target_location = _target_location;
+    }
+
+    public void SetIndex(int value)
+    {
+        index_value = value; 
     }
 }

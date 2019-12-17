@@ -14,7 +14,7 @@ public enum Targets
     Berlin,
     London,
     Alaska,
-    Iraq,
+    Afghanistan,
     NorthKorea
 };
 
@@ -26,5 +26,7 @@ public class Mission : ScriptableObject
     public string m_description; 
     public Spawn m_spawn_location;
     public Targets m_target_location;
-    public float m_threat_level; 
+    public float m_threat_level;
+    public int m_crew;
+    public int m_reward; 
 }

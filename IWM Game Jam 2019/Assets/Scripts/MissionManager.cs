@@ -50,7 +50,13 @@ public class MissionManager : MonoBehaviour
 
     public void MissionFail()
     {
-        GameManager.Instance.SetThreatLevel(missions[rand_mission].m_threat_level); 
+        GameManager.Instance.AddThreatLevel(missions[rand_mission].m_threat_level); 
+    }
+
+    public void MissionComplete()
+    {
+        GameManager.Instance.AddCrew(missions[rand_mission].m_crew);
+        GameManager.Instance.AddMoney(missions[rand_mission].m_reward);
     }
 
     // Setters 

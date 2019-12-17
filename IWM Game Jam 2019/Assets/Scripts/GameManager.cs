@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIManager ui_manager; 
 
     private int m_turn_number = 1;
-    private float m_threat_level = 0; 
+    private float m_threat_level = 0;
+    private int m_crew = 15;
+    private int m_money = 150; 
 
     private void Awake()
     {
@@ -56,9 +58,39 @@ public class GameManager : MonoBehaviour
         return m_threat_level; 
     }
 
+    public int GetCrew()
+    {
+        return m_crew; 
+    }
+
+    public int GetMoney()
+    {
+        return m_money; 
+    }
+
     // Setter 
-    public void SetThreatLevel(float value)
+    public void AddThreatLevel(float value)
     {
         m_threat_level += value; 
+    }
+
+    public void AddCrew(int value)
+    {
+        m_crew += value;  
+    }
+
+    public void AddMoney(int value)
+    {
+        m_money += value;
+    }
+
+    public void SubCrew(int value)
+    {
+        m_crew -= value; 
+    }
+
+    public void SubMoney(int value)
+    {
+        m_money -= value; 
     }
 }

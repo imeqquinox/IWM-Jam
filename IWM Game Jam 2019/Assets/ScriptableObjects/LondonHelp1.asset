@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f2d6fa4a870c324981af4a0c526fa52, type: 3}
-  m_Name: IraqBombing
+  m_Name: LondonHelp1
   m_EditorClassIdentifier: 
-  m_mission_name: Operation Red Hawk
-  m_description: Bomb USSR supply routes within Iraq
+  m_mission_name: Over the pond
+  m_description: 'Help our allies in London by deliver US planes. '
   m_spawn_location: 0
-  m_target_location: 5
-  m_threat_level: 15
+  m_target_location: 3
+  m_threat_level: 5
+  m_crew: 7
+  m_reward: 25

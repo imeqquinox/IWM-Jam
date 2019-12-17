@@ -26,7 +26,9 @@ public class Pathfinding : MonoBehaviour
     private void Update()
     {
         if (!m_found)
-            FindPath(start_position, target_position); 
+        {
+            FindPath(start_position, target_position);
+        }
     }
     
     // Setters 
@@ -48,7 +50,12 @@ public class Pathfinding : MonoBehaviour
     private void FindPath(Vector3 _start_position, Vector3 _target_position)
     {
         if (_start_position == _target_position)
-            m_found = true; 
+        {
+            m_found = true;
+            MissionManager.Instance.MissionComplete();
+            // Get plane index
+            //Destroy(this.gameObject); 
+        }
 
         Node start_node = grid.NodeFromWorldPoint(_start_position);
         Node target_node = grid.NodeFromWorldPoint(_target_position);
@@ -117,12 +124,9 @@ public class Pathfinding : MonoBehaviour
         path.Reverse();
         grid.path = path;
 
-        // Fix
-        //if (m_path_index >= path.Count)
-        //{
-        //    m_path_index = path.Count - 1;
-        //}
-            
+        if (m_path_index > path.Count - 1)
+            m_path_index = path.Count - 1; 
+
         next_position = path[m_path_index].GetWorldPosition(); 
     }
 

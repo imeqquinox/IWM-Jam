@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2d6fa4a870c324981af4a0c526fa52, type: 3}
   m_Name: NorthKoreaSpy
   m_EditorClassIdentifier: 
-  m_mission_name: Northern Pickaboo
-  m_description: Spy on North Korea
+  m_mission_name: North of the 38th
+  m_description: 'Recon mission over North Korea to gather intel. '
   m_spawn_location: 0
   m_target_location: 6
   m_threat_level: 20
+  m_crew: 5
+  m_reward: 45

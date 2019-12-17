@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: AlaskaSupply
   m_EditorClassIdentifier: 
   m_mission_name: Help Alaska
-  m_description: Supply Alaska with recourses
+  m_description: Supply Alaska with recourses.
   m_spawn_location: 0
   m_target_location: 4
   m_threat_level: 5
+  m_crew: 5
+  m_reward: 20

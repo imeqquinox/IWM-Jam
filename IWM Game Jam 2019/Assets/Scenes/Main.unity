@@ -201,7 +201,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 84152571}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 912320089}
+        m_MethodName: SetPlaneIndex
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &84152571
@@ -555,6 +566,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106757993}
   m_CullTransparentMesh: 0
+--- !u!1 &155566122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 155566123}
+  - component: {fileID: 155566125}
+  - component: {fileID: 155566124}
+  m_Layer: 5
+  m_Name: CrewText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &155566123
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155566122}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 912320088}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 152.20001, y: -153.59998}
+  m_SizeDelta: {x: 258.3, y: 90.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &155566124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155566122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 48
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 48
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Crew: '
+--- !u!222 &155566125
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155566122}
+  m_CullTransparentMesh: 0
 --- !u!1 &199677502
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,7 +734,6 @@ GameObject:
   m_Component:
   - component: {fileID: 203012130}
   - component: {fileID: 203012131}
-  - component: {fileID: 203012132}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -681,18 +770,6 @@ MonoBehaviour:
   player: {fileID: 0}
   m_grid_size: {x: 30, y: 20}
   node_radius: 0.5
---- !u!114 &203012132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 203012129}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fab701f3e344150488832b20a64cd247, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &218392583
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,7 +965,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cd64379688fa08d4185afd44ec1f9dcd, type: 2}
+  - {fileID: 2100000, guid: da59fdc05d545da43927488aa5e4df77, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1250,7 +1327,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 522732062}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 912320089}
+        m_MethodName: SetPlaneIndex
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &522732062
@@ -1322,18 +1410,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   world_grid: {fileID: 203012131}
   plane_types:
-  - m_name: SR-17 Blackbiard
+  - m_name: SR-17 Blackbird
     m_movement_cost: 4
     m_cost: 34
     m_crew_cost: 2
     m_resourceload_name: TestPlane
-  - m_name: B-52 Stratofortress
-    m_movement_cost: 2
+  - m_name: B-52 Stortress
+    m_movement_cost: 1
     m_cost: 14
     m_crew_cost: 5
     m_resourceload_name: TestPlane
   - m_name: A-10 Thunderbolt II
-    m_movement_cost: 1
+    m_movement_cost: 2
     m_cost: 18
     m_crew_cost: 1
     m_resourceload_name: TestPlane
@@ -1442,7 +1530,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 567393219}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 912320089}
+        m_MethodName: SetPlaneIndex
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &567393219
@@ -1899,6 +1998,8 @@ RectTransform:
   - {fileID: 402589875}
   - {fileID: 1404054778}
   - {fileID: 1191982519}
+  - {fileID: 155566123}
+  - {fileID: 1699535730}
   - {fileID: 1960987910}
   - {fileID: 1089456783}
   - {fileID: 1722556116}
@@ -1923,6 +2024,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turn_text: {fileID: 1191982520}
+  crew_text: {fileID: 155566124}
+  money_text: {fileID: 1699535731}
   next_turn_btn: {fileID: 1404054779}
   threat_level: {fileID: 1276837297}
   game_over: {fileID: 1722556115}
@@ -2256,7 +2359,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1089456783
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2272,7 +2375,7 @@ RectTransform:
   - {fileID: 1272215039}
   - {fileID: 419000442}
   m_Father: {fileID: 912320088}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2398,7 +2501,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1105491279}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 912320089}
+        m_MethodName: SetPlaneIndex
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1105491279
@@ -2723,10 +2837,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missions:
-  - {fileID: 11400000, guid: 5f7582b65dee04d4b8160f0cffbf996c, type: 2}
-  - {fileID: 11400000, guid: 04031411651a2354385d48bfe2a228a6, type: 2}
   - {fileID: 11400000, guid: f301d8e9aa2585d4290dc5dab30b6856, type: 2}
   - {fileID: 11400000, guid: 4baa6bc0b833c114883244b4ef040f2d, type: 2}
+  - {fileID: 11400000, guid: fc4c294d18f60d94cbdb0f1eb4ed9e98, type: 2}
+  - {fileID: 11400000, guid: 7b8a743456572f0408b31afea81274cc, type: 2}
+  - {fileID: 11400000, guid: f50fef6a198f5d44290257b1d2149a7f, type: 2}
+  - {fileID: 11400000, guid: 5f7582b65dee04d4b8160f0cffbf996c, type: 2}
+  - {fileID: 11400000, guid: 04031411651a2354385d48bfe2a228a6, type: 2}
+  - {fileID: 11400000, guid: 029d312b9ced8024aacff0fc93287efa, type: 2}
 --- !u!4 &1241368929
 Transform:
   m_ObjectHideFlags: 0
@@ -3832,6 +3950,85 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1667207984}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1699535729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1699535730}
+  - component: {fileID: 1699535732}
+  - component: {fileID: 1699535731}
+  m_Layer: 5
+  m_Name: MoneyText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1699535730
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699535729}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 912320088}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 184.14, y: -243.99994}
+  m_SizeDelta: {x: 322.19, y: 90.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1699535731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699535729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 48
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 48
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Money: '
+--- !u!222 &1699535732
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699535729}
+  m_CullTransparentMesh: 0
 --- !u!1 &1722556115
 GameObject:
   m_ObjectHideFlags: 0
@@ -3863,7 +4060,7 @@ RectTransform:
   m_Children:
   - {fileID: 1793826934}
   m_Father: {fileID: 912320088}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4023,7 +4220,7 @@ RectTransform:
   - {fileID: 701279458}
   - {fileID: 1407717959}
   m_Father: {fileID: 912320088}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4149,7 +4346,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1968734491}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 912320089}
+        m_MethodName: SetPlaneIndex
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1968734491

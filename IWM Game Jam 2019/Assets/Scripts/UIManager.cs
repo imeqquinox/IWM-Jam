@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [Header("[UI Elements]")]
-    [SerializeField] private Text turn_text; 
+    [SerializeField] private Text turn_text;
+    [SerializeField] private Text crew_text; 
+    [SerializeField] private Text money_text; 
     [SerializeField] private Button next_turn_btn;
     [SerializeField] private Image threat_level;
     [SerializeField] private GameObject game_over; 
+
 
     [Header("[Mission Panel]")]
     [SerializeField] private GameObject mission_panel;
@@ -23,7 +26,9 @@ public class UIManager : MonoBehaviour
     [Header("[Plane Selection]")]
     [SerializeField] private GameObject plane_selection_panel;
     [SerializeField] private GameObject[] stats;
-    [SerializeField] private Button[] planeBtn; 
+    [SerializeField] private Button[] planeBtn;
+
+    private int m_plane_index = 0; 
 
     private void Start()
     {
@@ -50,6 +55,8 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         turn_text.text = "Turn: " + GameManager.Instance.GetCurrentTurn().ToString();
+        crew_text.text = "Crew: " + GameManager.Instance.GetCrew().ToString();
+        money_text.text = "Money: $" + GameManager.Instance.GetMoney().ToString() + "M"; 
         threat_level.fillAmount = GameManager.Instance.GetThreatLevel() / 100; 
 
         // If the player is currently reading/choosing a misson disable next turn button
@@ -70,10 +77,16 @@ public class UIManager : MonoBehaviour
 
     private void AssignMission()
     {
-        PlaneManager.Instance.AssignMissionToPlane(MissionManager.Instance.GetMission());
+        PlaneManager.Instance.AssignMissionToPlane(MissionManager.Instance.GetMission(), m_plane_index);
         plane_selection_panel.SetActive(false);
         // User has choosen a mission so allow next turn button active
         MissionManager.Instance.SetMissionChoice(false); 
+    }
+
+    // Set plane index from button 
+    public void SetPlaneIndex(int index)
+    {
+        m_plane_index = index; 
     }
 
     public void MissionPanelActive(Mission _mission)
@@ -95,7 +108,15 @@ public class UIManager : MonoBehaviour
     public void RejectMission()
     {
         MissionManager.Instance.MissionFail();
-        MissionManager.Instance.ActiviateMission(); 
+        if (GameManager.Instance.GetCurrentTurn() == 1)
+        {
+            MissionManager.Instance.ActiviateMission();
+        }
+        else
+        {
+            mission_panel.SetActive(false);
+            MissionManager.Instance.SetMissionChoice(false); 
+        }
     }
 
     public void GameOver()
