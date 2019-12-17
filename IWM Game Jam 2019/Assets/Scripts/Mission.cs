@@ -25,5 +25,6 @@ public class Mission : ScriptableObject
     [TextArea]
     public string m_description; 
     public Spawn m_spawn_location;
-    public Targets m_target_location; 
+    public Targets m_target_location;
+    public float m_threat_level; 
 }

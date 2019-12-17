@@ -16,3 +16,4 @@ MonoBehaviour:
   m_description: Bomb USSR supply routes within Iraq
   m_spawn_location: 0
   m_target_location: 5
+  m_threat_level: 15

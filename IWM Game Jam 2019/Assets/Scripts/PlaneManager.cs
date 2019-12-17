@@ -7,6 +7,7 @@ public class PlaneManager : MonoBehaviour
     public static PlaneManager Instance { get; private set; }
 
     [SerializeField] private WorldGrid world_grid;
+    [SerializeField] private Plane[] plane_types; 
 
     private Plane[] planes = new Plane[5]; 
     private int m_plane_index; 
@@ -50,6 +51,13 @@ public class PlaneManager : MonoBehaviour
 
         planes[m_plane_index] = new Plane(world_start, world_target);
         planes[m_plane_index].Start();
+        // Stats here
         m_plane_index++; 
+    }
+
+    // Getter 
+    public Plane GetPlaneType(int index)
+    {
+        return plane_types[index]; 
     }
 }

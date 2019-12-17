@@ -16,3 +16,4 @@ MonoBehaviour:
   m_description: Spy on Moscow
   m_spawn_location: 0
   m_target_location: 0
+  m_threat_level: 25

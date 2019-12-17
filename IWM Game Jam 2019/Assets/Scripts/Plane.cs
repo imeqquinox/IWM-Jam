@@ -2,14 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Plane
 {
-    private int m_movement_cost = 3; 
+    [SerializeField] private string m_name; 
+    [SerializeField] private int m_movement_cost;
+    [SerializeField] private int m_cost;
+    [SerializeField] private int m_crew_cost;
+    [SerializeField] private string m_resourceload_name; 
 
     private Vector3 m_start_location;
     private Vector3 m_target_location; 
     private GameObject m_plane;
-    private Pathfinding m_pathfinding; 
+    private Pathfinding m_pathfinding;
+
+    public Plane() {}
 
     public Plane(Vector3 _start_location, Vector3 _target_location)
     {
@@ -49,6 +56,26 @@ public class Plane
     public GameObject GetPlaneObject()
     {
         return m_plane; 
+    }
+
+    public string GetPlaneName()
+    {
+        return m_name; 
+    }
+
+    public int GetMovementCost()
+    {
+        return m_movement_cost; 
+    }
+
+    public int GetCost()
+    {
+        return m_cost; 
+    }
+
+    public int GetCrewCost()
+    {
+        return m_crew_cost; 
     }
 
     // Setters 

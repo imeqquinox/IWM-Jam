@@ -10,6 +10,7 @@ public class MissionManager : MonoBehaviour
 
     private UIManager ui_manager;
     private int rand_mission;
+    public bool mission_choice { get; private set; }
 
     private void Awake()
     {
@@ -26,12 +27,13 @@ public class MissionManager : MonoBehaviour
 
     private void Start()
     {
+        mission_choice = false; 
         ui_manager = GameObject.Find("UI Canvas").GetComponent<UIManager>();
         ActiviateMission(); 
     }
 
     // For all mission information to assign to plane
-    public Mission GetNewMission()
+    public Mission GetMission()
     {
         if (missions == null)
             return null;
@@ -41,7 +43,19 @@ public class MissionManager : MonoBehaviour
 
     public void ActiviateMission()
     {
+        mission_choice = true; 
         rand_mission = Random.Range(0, missions.Length);
         ui_manager.MissionPanelActive(missions[rand_mission]);
+    }
+
+    public void MissionFail()
+    {
+        GameManager.Instance.SetThreatLevel(missions[rand_mission].m_threat_level); 
+    }
+
+    // Setters 
+    public void SetMissionChoice(bool value)
+    {
+        mission_choice = value; 
     }
 }
