@@ -96,32 +96,32 @@ public class WorldGrid : MonoBehaviour
     }
 
     public List<Node> path;
-    /// Temp DrawGizmo for cubes 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(transform.position, new Vector3(m_grid_size.x, 1, m_grid_size.y));
+    ///// Temp DrawGizmo for cubes 
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawWireCube(transform.position, new Vector3(m_grid_size.x, 1, m_grid_size.y));
 
-        if (m_grid != null)
-        { 
-            foreach (Node n in m_grid)
-            {
-                Gizmos.color = Color.blue;
+    //    if (m_grid != null)
+    //    { 
+    //        foreach (Node n in m_grid)
+    //        {
+    //            Gizmos.color = Color.blue;
 
-                if (path != null)
-                {
-                    if (n == path[0])
-                    {
-                        Gizmos.color = Color.black; 
-                    }
-                    else if (path.Contains(n))
-                    {
-                        Gizmos.color = Color.red;
-                    }
-                }
+    //            if (path != null)
+    //            {
+    //                if (n == path[0])
+    //                {
+    //                    Gizmos.color = Color.black; 
+    //                }
+    //                else if (path.Contains(n))
+    //                {
+    //                    Gizmos.color = Color.red;
+    //                }
+    //            }
 
-                Gizmos.DrawCube(n.GetWorldPosition(), Vector3.one * (node_diameter - 0.1f)); 
-            }
-        }
-    }
+    //            Gizmos.DrawCube(n.GetWorldPosition(), Vector3.one * (node_diameter - 0.1f)); 
+    //        }
+    //    }
+    //}
 }
 

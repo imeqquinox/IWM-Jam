@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class Pathfinding : MonoBehaviour
 {
-    [SerializeField] private Transform seeker, target;
+    private Vector3 start_position;
+    private Vector3 target_position;
+    public Vector3 next_position { get; private set; }
     private WorldGrid grid;
 
     private void Awake()
     {
-        grid = GetComponent<WorldGrid>();
+        grid = GameObject.Find("Grid").GetComponent<WorldGrid>(); 
     }
 
     private void Update()
     {
-        FindPath(seeker.position, target.position); 
+        FindPath(start_position, target_position); 
+    }
+    
+    // Setters 
+    public void SetStartPosition(Vector3 _start_position)
+    {
+        start_position = _start_position;
+    }
+
+    public void SetTargetPosition(Vector3 _target_position)
+    {
+        target_position = _target_position; 
     }
 
     private void FindPath(Vector3 _start_position, Vector3 _target_position)
@@ -84,7 +97,8 @@ public class Pathfinding : MonoBehaviour
         }
 
         path.Reverse();
-        grid.path = path; 
+        grid.path = path;
+        next_position = path[0].GetWorldPosition(); 
     }
 
     private int GetDistance(Node _node_A, Node _node_B)
