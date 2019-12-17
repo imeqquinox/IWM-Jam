@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WestBerlin
   m_EditorClassIdentifier: 
   m_mission_name: West Berlin
-  m_description: Supply western Berlin with food supplies
+  m_description: Supply western Berlin with food supplies.
   m_spawn_location: 0
   m_target_location: 2
   m_threat_level: 5

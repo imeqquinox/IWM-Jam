@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MoscowSpyMission
   m_EditorClassIdentifier: 
   m_mission_name: Moscow Spy Mission
-  m_description: Gather vital ground information from surrounding areas of Moscow
+  m_description: Gather vital ground information from surrounding areas of Moscow.
   m_spawn_location: 0
   m_target_location: 0
   m_threat_level: 25

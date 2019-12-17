@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LondonHelp1
   m_EditorClassIdentifier: 
   m_mission_name: Over the pond
-  m_description: 'Help our allies in London by deliver US planes. '
+  m_description: 'Help our allies in London by delivering US planes. '
   m_spawn_location: 0
   m_target_location: 3
   m_threat_level: 5

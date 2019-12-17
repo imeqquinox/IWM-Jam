@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CubaRecon
   m_EditorClassIdentifier: 
   m_mission_name: Cuba Missle Crisis
-  m_description: USSR has setup a nuker missle in Cuba, we must gain info ASAP.
+  m_description: USSR has setup a nuclear missle base in Cuba, we must gain info ASAP.
   m_spawn_location: 0
   m_target_location: 1
   m_threat_level: 30

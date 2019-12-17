@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: LondonHelp2
   m_EditorClassIdentifier: 
   m_mission_name: Red London
-  m_description: USSR is testing the UK's RAF response, supply the UK with more aircrafts
-    for support.
+  m_description: USSR is testing the UK's RAF response times, supply the UK with more
+    aircrafts for support.
   m_spawn_location: 0
   m_target_location: 3
   m_threat_level: 15

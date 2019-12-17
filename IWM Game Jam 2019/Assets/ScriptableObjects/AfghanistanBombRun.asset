@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AfghanistanBombRun
   m_EditorClassIdentifier: 
   m_mission_name: Operation Red Hawk
-  m_description: Bomb potential USSR supply routes within Afghanistan
+  m_description: Bomb potential USSR supply routes within Afghanistan.
   m_spawn_location: 0
   m_target_location: 5
   m_threat_level: 15
