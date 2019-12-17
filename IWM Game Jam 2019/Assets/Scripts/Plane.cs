@@ -27,10 +27,13 @@ public class Plane
 
     public void Start()
     {
-        m_plane = GameObject.Instantiate(Resources.Load("A10Pre", typeof(GameObject)), m_start_location, Quaternion.identity) as GameObject;
+        m_plane = GameObject.Instantiate(Resources.Load(m_resourceload_name, typeof(GameObject)), m_start_location, Quaternion.identity) as GameObject;
         m_pathfinding = m_plane.GetComponent<Pathfinding>();
         m_pathfinding.SetStartPosition(m_start_location);
-        m_pathfinding.SetTargetPosition(m_target_location); 
+        m_pathfinding.SetTargetPosition(m_target_location);
+
+        Vector3 direction = m_target_location - m_start_location;
+        m_plane.transform.rotation = Quaternion.LookRotation(direction, Vector3.up); 
     }
 
     public void Move()
@@ -41,6 +44,9 @@ public class Plane
         m_plane.transform.position = m_pathfinding.next_position;
         // Update current position for pathfinding  
         m_pathfinding.SetStartPosition(m_pathfinding.next_position);
+
+        Vector3 direction = m_target_location - m_start_location;
+        m_plane.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
     }
 
     // Getters 

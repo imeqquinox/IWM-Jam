@@ -11,6 +11,7 @@ public class MissionManager : MonoBehaviour
     private UIManager ui_manager;
     private int rand_mission;
     public bool mission_choice { get; private set; }
+    public int missions_completed { get; private set; }
 
     private void Awake()
     {
@@ -27,7 +28,9 @@ public class MissionManager : MonoBehaviour
 
     private void Start()
     {
-        mission_choice = false; 
+        mission_choice = false;
+        missions_completed = 0; 
+
         ui_manager = GameObject.Find("UI Canvas").GetComponent<UIManager>();
         ActiviateMission(); 
     }
@@ -57,6 +60,7 @@ public class MissionManager : MonoBehaviour
     {
         GameManager.Instance.AddCrew(missions[rand_mission].m_crew);
         GameManager.Instance.AddMoney(missions[rand_mission].m_reward);
+        missions_completed++; 
     }
 
     // Setters 

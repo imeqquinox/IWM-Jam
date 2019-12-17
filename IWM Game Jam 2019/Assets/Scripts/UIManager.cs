@@ -8,11 +8,16 @@ public class UIManager : MonoBehaviour
     [Header("[UI Elements]")]
     [SerializeField] private Text turn_text;
     [SerializeField] private Text crew_text; 
-    [SerializeField] private Text money_text; 
+    [SerializeField] private Text money_text;
+    [SerializeField] private Text missions_text; 
     [SerializeField] private Button next_turn_btn;
     [SerializeField] private Image threat_level;
-    [SerializeField] private GameObject game_over; 
 
+    [Header("[GameOver]")]
+    [SerializeField] private GameObject game_over;
+    [SerializeField] private Text turnText;
+    [SerializeField] private Text missionsText; 
+    [SerializeField] private Button exitBtn; 
 
     [Header("[Mission Panel]")]
     [SerializeField] private GameObject mission_panel;
@@ -28,10 +33,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject[] stats;
     [SerializeField] private Button[] planeBtn;
 
-    private int m_plane_index = 0; 
+    private int m_plane_index = 0;
+    private int numMissions = 0; 
 
     private void Start()
     {
+        DontDestroyOnLoad(this.gameObject); 
+
         mission_panel.SetActive(false);
         plane_selection_panel.SetActive(false);
         game_over.SetActive(false); 
@@ -39,7 +47,8 @@ public class UIManager : MonoBehaviour
         next_turn_btn.onClick.AddListener(NextTurn);
         accept_missionBtn.onClick.AddListener(PlaneSelection);
         reject_missionBtn.onClick.AddListener(RejectMission);
-        //assign_mission_btn.onClick.AddListener(AssignMission); 
+
+        exitBtn.onClick.AddListener(Exit); 
 
         for (int i = 0; i < 5; i++)
         {
@@ -56,7 +65,8 @@ public class UIManager : MonoBehaviour
     {
         turn_text.text = "Turn: " + GameManager.Instance.GetCurrentTurn().ToString();
         crew_text.text = "Crew: " + GameManager.Instance.GetCrew().ToString();
-        money_text.text = "Money: $" + GameManager.Instance.GetMoney().ToString() + "M"; 
+        money_text.text = "Money: $" + GameManager.Instance.GetMoney().ToString() + "M";
+        missions_text.text = "Missions Completed: " + MissionManager.Instance.missions_completed.ToString(); 
         threat_level.fillAmount = GameManager.Instance.GetThreatLevel() / 100; 
 
         // If the player is currently reading/choosing a misson disable next turn button
@@ -126,6 +136,13 @@ public class UIManager : MonoBehaviour
             transform.GetChild(i).gameObject.SetActive(false); 
         }
 
-        game_over.SetActive(true); 
+        game_over.SetActive(true);
+        turnText.text = "Turns: " + GameManager.Instance.GetCurrentTurn().ToString();
+        missionsText.text = "Missions Completed: " + MissionManager.Instance.missions_completed.ToString(); 
+    }
+
+    public void Exit()
+    {
+        GameManager.Instance.Exit(); 
     }
 }

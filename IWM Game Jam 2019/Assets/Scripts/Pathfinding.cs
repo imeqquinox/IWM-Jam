@@ -125,7 +125,7 @@ public class Pathfinding : MonoBehaviour
         grid.path = path;
 
         if (m_path_index > path.Count - 1)
-            m_path_index = path.Count - 1; 
+            m_path_index = path.Count - 1;
 
         next_position = path[m_path_index].GetWorldPosition(); 
     }
