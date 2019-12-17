@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    private int m_turn_number = 1; 
+    private int m_turn_number = 1;
 
     private void Awake()
     {
@@ -21,16 +21,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        
-    }
-
     public void NextTurn()
     {
         m_turn_number++;
 
-        PlaneManager.Instance.UpdatePlaneMovement(); 
+        PlaneManager.Instance.UpdatePlaneMovement();
+        
+        if (m_turn_number % 3 == 0)
+        {
+            MissionManager.Instance.ActiviateMission(); 
+        }
     }
 
     public int GetCurrentTurn()

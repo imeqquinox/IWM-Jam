@@ -6,7 +6,10 @@ public class MissionManager : MonoBehaviour
 {
     public static MissionManager Instance { get; private set; }
 
-    [SerializeField] private Mission[] missions; 
+    [SerializeField] private Mission[] missions;
+
+    private UIManager ui_manager;
+    private int rand_mission;
 
     private void Awake()
     {
@@ -23,19 +26,22 @@ public class MissionManager : MonoBehaviour
 
     private void Start()
     {
-        if (missions[0] != null)
-        {
-            Debug.Log("Mission name: " + missions[0].m_mission_name);
-            Debug.Log("Spawn: " + missions[0].m_spawn_location);
-            Debug.Log("Target location: " + missions[0].m_target_location);
-        }
+        ui_manager = GameObject.Find("UI Canvas").GetComponent<UIManager>();
+        ActiviateMission(); 
     }
 
+    // For all mission information to assign to plane
     public Mission GetNewMission()
     {
         if (missions == null)
             return null;
 
-        return missions[0];
+        return missions[rand_mission];
+    }
+
+    public void ActiviateMission()
+    {
+        rand_mission = Random.Range(0, missions.Length);
+        ui_manager.MissionPanelActive(missions[rand_mission]);
     }
 }

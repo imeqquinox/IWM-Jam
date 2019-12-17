@@ -27,15 +27,12 @@ public class Plane
 
     public void Move()
     {
-        for (int i = 0; i < m_movement_cost; i++)
-        {
-            // Move plane to next position in path
-            m_plane.transform.position = m_pathfinding.next_position;
-            // Update current position for pathfinding  
-            m_pathfinding.SetStartPosition(m_pathfinding.next_position);
-            Debug.Log("Plane position: " + m_plane.transform.position);
-            Debug.Log("Next position: " + m_pathfinding.next_position);
-        }
+        // Set path node index depending on the speed of the plane
+        m_pathfinding.SetPathIndex(m_movement_cost); 
+        // Move plane to next position in path
+        m_plane.transform.position = m_pathfinding.next_position;
+        // Update current position for pathfinding  
+        m_pathfinding.SetStartPosition(m_pathfinding.next_position);
     }
 
     // Getters 

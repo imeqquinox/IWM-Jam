@@ -10,9 +10,9 @@ public static class Locations
     private static Vector2 m_cuba = new Vector2(8, 12);
     private static Vector2 m_berlin = new Vector2(16, 15);
     private static Vector2 m_london = new Vector2(14, 15);
-    private static Vector2 m_alaska = new Vector2(2, 16);
-    private static Vector2 m_iraq = new Vector2(18, 13);
-    private static Vector2 m_north_korea = new Vector2(25, 14);
+    private static Vector2 m_alaska = new Vector2(3, 18);
+    private static Vector2 m_iraq = new Vector2(20, 14);
+    private static Vector2 m_north_korea = new Vector2(26, 15);
 
     public static Vector2 GetLocation(string _location_name)
     {

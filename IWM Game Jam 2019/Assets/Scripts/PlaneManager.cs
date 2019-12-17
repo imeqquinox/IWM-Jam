@@ -31,11 +31,13 @@ public class PlaneManager : MonoBehaviour
 
     public void UpdatePlaneMovement()
     {
-        //foreach (Plane _plane in planes)
-        //{
-        //    _plane.Move(); 
-        //}
-        planes[0].Move(); 
+        for (int i = 0; i < planes.Length; i++)
+        {
+            if (planes[i] == null)
+                break;
+
+            planes[i].Move(); 
+        }
     }
 
     public void AssignMissionToPlane(Mission _mission)

@@ -22,6 +22,8 @@ public enum Targets
 public class Mission : ScriptableObject
 {
     public string m_mission_name;
+    [TextArea]
+    public string m_description; 
     public Spawn m_spawn_location;
     public Targets m_target_location; 
 }
